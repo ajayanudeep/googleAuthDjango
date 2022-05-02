@@ -12,6 +12,23 @@
 <p>{% trans 'Are you sure you want to sign out?' %}</p>
 
 <form method="post" class="loginform" action="{% url 'account_logout' %}">
+  {% if form.errors %}
+  <div class="alert alert-error">
+    <h4>Please fix the following errors</h4>
+    <ul>
+      {% for field in form %}
+        {% if field.errors %}
+          {% for error in field.errors %}
+            <li><a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a></li>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+    {% if form.non_field_errors %}
+      {{ form.non_field_errors }}
+    {% endif %}
+  </div>
+{% endif %}
   {% csrf_token %}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>

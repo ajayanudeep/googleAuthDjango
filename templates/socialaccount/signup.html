@@ -13,6 +13,23 @@
 {{site_name}}. As a final step, please complete the following form:{% endblocktrans %}</p>
 
 <form class="signup"  id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+  {% if form.errors %}
+  <div class="alert alert-error">
+    <h4>Please fix the following errors</h4>
+    <ul>
+      {% for field in form %}
+        {% if field.errors %}
+          {% for error in field.errors %}
+            <li><a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a></li>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+    {% if form.non_field_errors %}
+      {{ form.non_field_errors }}
+    {% endif %}
+  </div>
+  {% endif %}
   {% csrf_token %}
   {{ form.as_p }}
   {% if redirect_field_value %}
