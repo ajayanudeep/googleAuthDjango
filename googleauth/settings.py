@@ -64,8 +64,8 @@ SOCIALACCOUNT_PROVIDERS = {
         # credentials, or list them here:
         'APP': {
             # created the cliend id and secret key credentials from google cloud 
-            'client_id': '974045932598-16tala1o36poo3pps70qq6p09q32gt3p.apps.googleusercontent.com',
-            'secret': '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',
+            'client_id': '974045932598-4pvq6ll6v8774ed0rspc39cko6u50g9n.apps.googleusercontent.com',
+            'secret': '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',
             'key': ''
         }
     }
@@ -163,3 +163,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 STATICFILES_DIRS = [BASE_DIR / "assets"]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGOUT_REDIRECT_URL="http://localhost:8000/accounts/login/"
+LOGIN_REDIRECT_URL="http://localhost:8000/loggedin/"
