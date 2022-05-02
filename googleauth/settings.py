@@ -159,3 +159,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ACCOUNT_EMAIL_REQUIRED=True
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+STATICFILES_DIRS = [BASE_DIR / "assets"]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
