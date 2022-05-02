@@ -64,8 +64,8 @@ SOCIALACCOUNT_PROVIDERS = {
         # credentials, or list them here:
         'APP': {
             # created the cliend id and secret key credentials from google cloud 
-            'client_id': '974045932598-4pvq6ll6v8774ed0rspc39cko6u50g9n.apps.googleusercontent.com',
-            'secret': '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',
+            'client_id': '974045932598-ppeoatms3tusdcpmjlskivm13d56ddge.apps.googleusercontent.com',
+            'secret': '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',
             'key': ''
         }
     }
@@ -158,7 +158,15 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ACCOUNT_EMAIL_REQUIRED=True
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'ajaykumarvelangi1@gmail.com'
+EMAIL_HOST_PASSWORD = 'tpgshqobahrnlbuj'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
 
 
 STATICFILES_DIRS = [BASE_DIR / "assets"]
