@@ -1,3 +1,4 @@
+<!-- inherits/extends the base template -->
 {% extends "account/base.html" %}
 
 {% load i18n %}
@@ -37,6 +38,7 @@ of your existing google account. or, <a href="{{ signup_url }}">sign up</a></p>
   
 
 <form class="loginform" method="POST" action="{% url 'account_login' %}">
+  <!-- checks and displays error messages when made an invalid request -->
   {% if form.errors %}
     <div class="alert alert-error">
       <h4>Please fix the following errors</h4>
@@ -55,6 +57,7 @@ of your existing google account. or, <a href="{{ signup_url }}">sign up</a></p>
     </div>
   {% endif %}
     {% csrf_token %}
+    <!-- shows the form fields -->
     <label >{{form.login.label}}</label>
     {{form.login}}
     <label >{{form.password.label}}</label>

@@ -1,3 +1,4 @@
+<!-- inherits/extends the base template -->
 {% extends "account/base.html" %}
 
 {% load i18n %}
@@ -12,6 +13,8 @@
 <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
 <form class="loginform" id="signup_form" method="post" action="{% url 'account_signup' %}">
+    <!-- checks and displays error messages when made an invalid request -->
+
   {% if form.errors %}
     <div class="alert alert-error">
       <h4>Please fix the following errors</h4>
@@ -30,6 +33,7 @@
     </div>
   {% endif %}
   {% csrf_token %}
+  <!-- loops through the form and display its fields -->
   {% for field in form %}
     <label>{{ field.label}}</label>
     {{field}}

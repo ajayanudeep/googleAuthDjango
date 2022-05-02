@@ -158,6 +158,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ACCOUNT_EMAIL_REQUIRED=True
+
+#Email settings required for django to send emails when required like forgot password,email confirmation etc.,
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -167,9 +169,10 @@ EMAIL_HOST_PASSWORD = 'tpgshqobahrnlbuj'
 
 
 
-
+#specifies the path to static files like css and javascript
 STATICFILES_DIRS = [BASE_DIR / "assets"]
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+#redirects when logged out
 LOGOUT_REDIRECT_URL="http://localhost:8000/accounts/login/"
+#redirects when loggen in
 LOGIN_REDIRECT_URL="http://localhost:8000/loggedin/"
